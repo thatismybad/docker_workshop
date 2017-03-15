@@ -28,3 +28,5 @@ Materiály a postupy probírané při Docker Workshopu.
 2. zobrazení webové aplikace v prohlížeči
     - syntaxe: http://<IP_ADRESA_VIRTUALNIHO_STROJE>:<OUT_PORT>/<APLIKACE>
     - příklad: http://192.168.56.101:8080/docker
+    
+![alt text](https://github.com/eiOck/docker_workshop/blob/master/img/deployed.PNG?raw=true "App Deployed")
