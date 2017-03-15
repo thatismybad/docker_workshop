@@ -30,3 +30,20 @@ Materiály a postupy probírané při Docker Workshopu.
     - příklad: http://192.168.56.101:8080/docker
     
 ![alt text](https://github.com/eiOck/docker_workshop/blob/master/img/deployed.PNG?raw=true "App Deployed")
+
+
+## Povolení Remote API portu
+1. pomocí příkazu **service docker status** zobrazíme status Docker služby 
+![alt text](https://github.com/eiOck/docker_workshop/blob/master/img/docker_status.PNG?raw=true "Status of Docker service")
+      - na řádku **Loaded** je cesta ke konfiguraci služby Docker
+2. do souboru s konfígurací k vlastnosti **ExecStart** přidáme následující: **-H tcp://<IP_ADRESA>:<PORT>**
+      - příklad vlastnosti ExecStart pro přístup z jakékoli adresy na portu 4243: `ExecStart=/usr/bin/dockerd -H -fd:// -H tcp://0.0.0.0:4243`
+3. uložíme soubor a znovu nahrajeme daemona **systemctl daemon-reload**
+      - pokud znovu zobrazíme status Docker služby uvidíme, že např. na adrese a portu 0.0.0.0:4243 Docker daemon poslouchá
+      
+      ![alt text](https://github.com/eiOck/docker_workshop/blob/master/img/docker_remote_api.PNG?raw=true "Docker is listening")
+      
+      - na této adrese můžeme volat požadavky (GET, POST, DELETE, ...) na Docker Engine API a tím Docker spravovat
+      - např. http://192.168.56.101:4243/version = vrátí JSON s informacemi o verzi Dockeru
+      - dokumentace k API v 1.26 https://docs.docker.com/engine/api/v1.26/
+
