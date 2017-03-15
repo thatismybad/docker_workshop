@@ -16,7 +16,7 @@ Materiály a postupy probírané při Docker Workshopu.
       - při vývoj webových aplikací v Javě se build projektu do souboru ve formátu .war provádí do složky v projektu - název bývá "**output**", "**target**", apod.
 
 1. spuštění Docker kontejneru s Tomcatem 8.5.11 na pozadí, napamovanou složkou a forwardovaným portem 8080
-    - syntaxe: docker run [PARAMETRY] DOCKER_IMAGE [PRIKAZ] [ARGUMENTY]
+    - syntaxe: `docker run [PARAMETRY] DOCKER_IMAGE [PRIKAZ] [ARGUMENTY]`
     - příkaz: `docker run -d --name dockerapp -v /media/sf_tmp/target:/usr/local/tomcat/webapps -p 8080:8080 tomcat:8.5.11`
       - docker run = vytvoření a spuštění nového kontejneru
         - parametry:
